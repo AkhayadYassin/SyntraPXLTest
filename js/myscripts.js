@@ -1,7 +1,6 @@
 function handleAuthentication(){
-    alert("handle auth");
-    console.log({urlFragment});
     const urlFragment = window.location.hash;
+    console.log({urlFragment});
     if (urlFragment.includes("id_token")) {
         // Authentication was successful. Extract and handle the ID token.
         console.log("token found");

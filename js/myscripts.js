@@ -5,6 +5,7 @@ function handleAuthentication(){
         // Authentication was successful. Extract and handle the ID token.
         console.log("token found");
         window.postMessage(urlFragment, "*")
+        localStorage.setItem("token", urlFragment);
     }
 }
 function receiveMessage(event) {
@@ -17,14 +18,15 @@ function receiveMessage(event) {
     // Handle the message content
     var data = event.data;
     console.log(data);
-
-    let iframes = document.querySelectorAll('iframe');
-    for (let i = 0; i < iframes.length; i++) {
-        iframes[i].parentNode.removeChild(iframes[i]);
-    }
     window.top.location.reload();
 }
 window.addEventListener("message", receiveMessage, false);
 window.addEventListener("load", (event) => {
     handleAuthentication();
+    if(localStorage.getItem("token").includes("id_token")){
+        let iframes = document.querySelectorAll('iframe');
+        for (let i = 0; i < iframes.length; i++) {
+            iframes[i].parentNode.removeChild(iframes[i]);
+        }
+    }
 });

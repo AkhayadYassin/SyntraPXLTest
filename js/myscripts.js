@@ -22,7 +22,7 @@ function receiveMessage(event) {
 }
 window.addEventListener("message", receiveMessage, false);
 window.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById('userInfoForm').classList.add('hidden');
+    document.getElementById('simpleform').classList.add('hidden');
 
 
     handleAuthentication();
@@ -30,6 +30,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     if(localStorage.getItem("token").includes("id_token")){
         document.getElementById('loginPanel').classList.add('hidden');
 
-        document.getElementById('userInfoForm').classList.remove('hidden');
+        document.getElementById('simpleform').classList.remove('hidden');
     }
 });

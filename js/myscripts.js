@@ -13,4 +13,6 @@ function handleAuthentication(){
     }
 }
 
-handleAuthentication();
+window.addEventListener("load", (event) => {
+    handleAuthentication();
+});

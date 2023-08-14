@@ -1,14 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="js/myscripts.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertically Split Page</title>
+    <script src="js/myscripts.js"></script>
+    <style>
+        /* General styling */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container holding the two panels */
+        .split-container {
+            display: flex;
+            height: 100%;
+        }
+
+        /* Left panel styling */
+        .left-panel {
+            flex: 1;
+            background-color: red;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Right panel styling (iframe) */
+        .right-panel {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .right-panel iframe {
+            width: 100%;
+            height: 100%;
+            border: 5px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
 <body>
+<div class="split-container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <h1>Welcome</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
+    </div>
 
-<h1>Test page flows</h1>
-
-<div>
-    <div id="left" style="background: black"></div>
-    <div id="right">
-        <iframe id="loginframe" src="https://login.tst.syntrapxl.be/login.tst.syntrapxl.be/oauth2/v2.0/authorize?p=B2C_1A_SYNTRA_PXL_EMBEDDED_SIGNIN&client_id=59c3b317-b8e8-4601-b24e-70a411f659e0&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fyellow-moss-00f964103.3.azurestaticapps.net&scope=openid&response_type=id_token&prompt=login"></iframe>
+    <!-- Right Panel with Iframe -->
+    <div class="right-panel">
+        <iframe frameborder="0" src="https://login.tst.syntrapxl.be/login.tst.syntrapxl.be/oauth2/v2.0/authorize?p=B2C_1A_SYNTRA_PXL_EMBEDDED_SIGNIN&client_id=59c3b317-b8e8-4601-b24e-70a411f659e0&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fyellow-moss-00f964103.3.azurestaticapps.net&scope=openid&response_type=id_token&prompt=login"></iframe>
     </div>
 </div>
 </body>

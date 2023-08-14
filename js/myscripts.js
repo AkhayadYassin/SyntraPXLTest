@@ -22,6 +22,7 @@ function receiveMessage(event) {
     for (let i = 0; i < iframes.length; i++) {
         iframes[i].parentNode.removeChild(iframes[i]);
     }
+    window.top.location.reload();
 }
 window.addEventListener("message", receiveMessage, false);
 window.addEventListener("load", (event) => {

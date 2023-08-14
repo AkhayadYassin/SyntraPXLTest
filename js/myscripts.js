@@ -21,16 +21,15 @@ function receiveMessage(event) {
     window.top.location.reload();
 }
 window.addEventListener("message", receiveMessage, false);
-window.addEventListener("load", (event) => {
-    let form = document.getElementById('userInfoForm');
-    form.style.display = 'none';
+window.addEventListener("DOMContentLoaded", (event) => {
+    document.getElementById('userInfoForm').classList.add('hidden');
+
 
     handleAuthentication();
 
     if(localStorage.getItem("token").includes("id_token")){
-        let loginPanel = document.getElementById('loginPanel');
-        loginPanel.style.display = 'none';
+        document.getElementById('loginPanel').classList.add('hidden');
 
-        form.style.display = 'block';
+        document.getElementById('userInfoForm').classList.remove('hidden');
     }
 });

@@ -22,11 +22,15 @@ function receiveMessage(event) {
 }
 window.addEventListener("message", receiveMessage, false);
 window.addEventListener("load", (event) => {
+    let form = document.getElementById('userInfoForm');
+    form.style.display = 'none';
+
     handleAuthentication();
+
     if(localStorage.getItem("token").includes("id_token")){
-        let iframes = document.querySelectorAll('iframe');
-        for (let i = 0; i < iframes.length; i++) {
-            iframes[i].parentNode.removeChild(iframes[i]);
-        }
+        let loginPanel = document.getElementById('loginPanel');
+        loginPanel.style.display = 'none';
+
+        form.style.display = 'block';
     }
 });
